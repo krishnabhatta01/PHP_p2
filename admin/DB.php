@@ -28,7 +28,7 @@ class db{
         if($this->get_user_data() == false){//data not found
 
             
-            $sql = "INSERT INTO about_us VALUES(null, '$title','$description','$image')";
+            $sql = "INSERT INTO about_us VALUES(null, '$title','$description','$fn')";
             $result = mysqli_query($this->connection, $sql);
             if($result == true){
                 if($filename != null){
@@ -72,16 +72,16 @@ class db{
     }
 
     //create teams
-    function team($team){
+    function team($team,$image_data){
         $this->connect();
         extract($team);
-        $filename = $_FILES['image']['name'];
-        $ftemp = $_FILES['image']['tmp_name'];
-        $sql = "INSERT INTO employee VALUES(null, '$team_image','$name','$domain')";
+        $fn = $_FILES['team_image']['name'];
+        $ftemp = $_FILES['team_image']['tmp_name'];
+        $sql = "INSERT INTO employee VALUES(null, '$fn','$name','$domain')";
         $result = mysqli_query($this->connection, $sql);
         if ($result == true) {
-            if ($filename != '') {
-                move_uploaded_file($ftemp, "images/$filename");
+            if ($fn != "") {
+                move_uploaded_file($ftemp, "images/$fn");
                 return true;
             }
         } else {
@@ -89,7 +89,39 @@ class db{
         }
     }
 
+    function get_team()
+    {
+        $this->connect();
+        $sql = "SELECT * FROM employee ";
+        $result = mysqli_query($this->connection, $sql);
+        $row_num = mysqli_num_rows($result);
+        if ($row_num == 0) {
+            return false;
+        } else {
+            while($row = mysqli_fetch_assoc($result)){
+                $data[]=$row;
+            }
+            return $data;
+        }
+    }
 
+    function save_galary($gallary){
+        $this->connect();
+        extract($gallary);
+        $fn = $_FILES['gallary_image']['name'];
+        $temp_name = $_FILES['gallary_image']['tmp_name'];
+        $sql = "INSERT INTO gallary VALUES(null , '$title', '$fn')";
+        $result = mysqli_query($this->connection, $sql);
+        if($result){
+            if($fn != ''){
+                move_uploaded_file($temp_name,"images/$fn");
+                return true;
+            }
+
+        }else{
+            return false;
+        }
+    }
 
 
 }//end of class

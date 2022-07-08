@@ -40,11 +40,24 @@
                      </a>
                  </li>
                  <li>
-                     <a href="employee.php">
-                         <i class="bi bi-circle"></i><span>Employee</span>
+                     <a href="team_view.php">
+                         <i class="bi bi-circle"></i><span>View</span>
                      </a>
                  </li>
 
+             </ul>
+         </li>
+         <li class="nav-item">
+             <a class="nav-link collapsed" data-bs-target="#project-nav" data-bs-toggle="collapse" href="#">
+                 <i class="bi bi-menu-button-wide"></i><span>Project</span><i class="bi bi-chevron-down ms-auto"></i>
+             </a>
+             <ul id="project-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                 <li>
+                     <a href="create_projects.php">
+                         <i class="bi bi-circle"></i><span>Create</span>
+                     </a>
+                 </li>
+                 
              </ul>
          </li>
 
