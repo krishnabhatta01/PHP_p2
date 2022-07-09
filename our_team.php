@@ -1,4 +1,8 @@
+<?php
 
+$team = $db_object->get_team();
+$team = is_array($team) ? $team : array($team);
+?>
 
 
 
@@ -13,7 +17,9 @@
                     <p><a href="#" class="btn btn-secondary">View All Staff</a></p>
                 </div>
             </div>
-
+            <?php
+            if (is_array($team) || is_object($team))
+            { ?>
             <?php foreach ($team as $one) { ?>
                 <div class="col-md-4 col-lg-3 ftco-animate d-flex">
                     <div class="staff">
@@ -34,6 +40,7 @@
                         </div>
                     </div>
                 </div>
+            <?php } ?>
             <?php } ?>
 
         </div>
