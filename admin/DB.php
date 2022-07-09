@@ -163,6 +163,22 @@ class db{
         }
     }
 
+    //Login
+    function login($email,$password){
+        $this->connect();
+
+        $email = mysqli_real_escape_string($this->connection,$email);
+        $password = mysqli_real_escape_string($this->connection, $password);
+        $sql = "SELECT * FROM login WHERE email='$email' and password='$password' and id='1' ";
+        $result = mysqli_query($this->connection, $sql);
+        $no = mysqli_num_rows($result);
+        if ($no == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 }//end of class
 
@@ -173,3 +189,5 @@ $db_object = new DB();
 
 
 ?>
+
+

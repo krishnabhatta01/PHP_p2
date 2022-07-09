@@ -1,3 +1,15 @@
+ <?php
+session_start();
+if(!isset($_SESSION['email'] )){
+    header("location:index.php");
+}
+
+ ?>
+ 
+ 
+ 
+ 
+ 
  <!-- Favicons -->
  <link href="assets/img/favicon.png" rel="icon">
  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
