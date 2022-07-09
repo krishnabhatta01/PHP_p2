@@ -105,19 +105,59 @@ class db{
         }
     }
 
+    function delete_team($id){
+        $this->connect();
+        $sql= "DELETE FROM employee WHERE id='$id' ";
+        $result = mysqli_query($this->connection, $sql);
+        //$row = mysqli_fetch_assoc($result);
+        if($result){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     function save_galary($gallary){
         $this->connect();
         extract($gallary);
-        $fn = $_FILES['gallary_image']['name'];
-        $temp_name = $_FILES['gallary_image']['tmp_name'];
+        $fn = $_FILES['image']['name'];
+        $ftemp = $_FILES['image']['tmp_name'];
         $sql = "INSERT INTO gallary VALUES(null , '$title', '$fn')";
         $result = mysqli_query($this->connection, $sql);
         if($result){
             if($fn != ''){
-                move_uploaded_file($temp_name,"images/$fn");
+                move_uploaded_file($ftemp,"images/$fn");
                 return true;
             }
 
+        }else{
+            return false;
+        }
+    }
+
+    function get_gallary(){
+        $this->connect();
+        $sql= "SELECT * FROM gallary";
+        $result = mysqli_query($this->connection, $sql);
+
+        $row_num = mysqli_num_rows($result);
+        if ($row_num == 0) {
+            return false;
+        } else {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $data[] = $row;
+            }
+            return $data;
+        }
+        
+        
+    }
+    function delete_gallary($id){
+        $this->connect();
+        $sql = "DELETE  FROM gallary WHERE id='$id' ";
+        $result = mysqli_query($this->connection, $sql);
+        if($result){
+            return true;
         }else{
             return false;
         }

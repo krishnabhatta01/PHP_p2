@@ -3,8 +3,26 @@ require('header.php');
 require('navbar.php');
 require('DB.php');
 
-if($db_object->save_galary($_POST)){
+if (isset($_POST['submit'])) {
+    if ($db_object->save_galary($_POST)) {
+        $message = "Gallary published";
+        $data = $db_object->get_gallary();
+        extract($data);
+    } else {
+        $message = "About Page failed to publish";
+    }
+} else {
+    if ($db_object->get_gallary() == false) { //if true (record found in db)
 
+        //initialize the variable
+        $data['gallary_title'] = '';
+
+        $data['gallary_image'] = '';
+    } else {
+        //fetching data from db
+        $data = $db_object->get_gallary();
+        extract($data);
+    }
 }
 ?>
 
@@ -33,7 +51,7 @@ if($db_object->save_galary($_POST)){
                         <form class="row g-3" method="post" action="" enctype="multipart/form-data">
                             <div class="col-md-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="floatingName" name="title" value="<?= $data['gallary_title'] ?>" required>
+                                    <input type="text" class="form-control" id="floatingName" name="title" value="<?= isset($data['gallary_title']) ?>" required>
                                     <label for="floatingName">Title</label>
                                 </div>
                             </div>
@@ -49,7 +67,7 @@ if($db_object->save_galary($_POST)){
                             <!-- End floating Labels Form -->
                     </div>
                 </div>
-              </div>
+            </div>
             <div class=" text-center">
                 <input type="submit" name="submit" class="btn btn-primary" value="Submit">
 

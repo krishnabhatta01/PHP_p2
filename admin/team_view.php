@@ -37,6 +37,7 @@
                                      <th scope="col">Name</th>
                                      <th scope="col">Image</th>
                                      <th scope="col">Domain</th>
+                                     <th scope="col">Action</th>
 
                                  </tr>
                              </thead>
@@ -45,12 +46,17 @@
                                     foreach ($data as $one) {  ?>
                                      <tr>
                                          <th scope="row">
-                                            <?=$one['id']  ?>
-                                        </th>
+                                             <?= $one['id']  ?>
+                                         </th>
                                          <td><?= $one['name'] ?></td>
                                          <td><img src="images/<?= $one['team_image'] ?>" alt="..." width=20% class="rounded"> </td>
                                          <td><?= $one['domain'] ?></td>
+                                         <td><a  onclick="deleteteam(<?= $one['id'] ?>)" type="button" class="btn btn-danger">
+                                                 <i class="bi bi-exclamation-octagon">
 
+                                                 </i>
+                                             </a>
+                                         </td>
                                      </tr>
 
                                  <?php } ?>
@@ -62,11 +68,21 @@
                      </div>
                  </div>
 
+
              </div>
          </div>
      </section>
 
  </main><!-- End #main -->
+ <script>
+    function deleteteam(id){
+        if(confirm("Are you sure you want to delete?")){
+            document.location='delete_team.php?id='+ id;
+        }else{
+            return false;
+        }
+    }
+ </script>
 
  <!-- Vendor JS Files -->
  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
