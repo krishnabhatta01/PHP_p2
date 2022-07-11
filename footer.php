@@ -21,7 +21,7 @@ extract($data);
                 <div class="block-21 mb-4 d-flex">
                     <a class="img mr-4 rounded" style="background-image: url('admin/images/<?= $one['blog_image'] ?>')"></a>
                     <div class="text">
-                        <h3 class="heading"><a href="#"><?= $one['blog_title'] ?></a></h3>
+                        <h3 class="heading"><a href="#"><?=$one['blog_title'] ?></a></h3>
                         <div class="meta">
                             <div><a href="#"><span class="icon-calendar"></span> Mar. 04, 2020</a></div>
                             <div><a href="#"><span class="icon-person"></span> Admin</a></div>

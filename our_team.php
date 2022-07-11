@@ -6,7 +6,7 @@ extract($team);
 
 
 
-<section class="ftco-section ftco-no-pt">
+<section class="ftco-section">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-lg-3 pr-md-4 pb-lg-0 pb-4">
