@@ -65,6 +65,24 @@
 
              </ul>
          </li>
+         <li class="nav-item">
+             <a class="nav-link collapsed" data-bs-target="#blog-nav" data-bs-toggle="collapse" href="#">
+                 <i class="ri-article-fill"></i></i><span>Blog</span><i class="bi bi-chevron-down ms-auto"></i>
+             </a>
+             <ul id="blog-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                 <li>
+                     <a href="create_blog.php">
+                         <i class="bi bi-circle"></i><span>Create</span>
+                     </a>
+                 </li>
+                 <li>
+                     <a href="view_blog.php">
+                         <i class="bi bi-circle"></i><span>View</span>
+                     </a>
+                 </li>
+
+             </ul>
+         </li>
 
      </ul>
 

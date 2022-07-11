@@ -5,7 +5,7 @@ require('navbar.php');
 require('DB.php');
 
 $data = $db_object->get_gallary();
-
+extract($data);
 
 
 ?>

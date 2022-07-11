@@ -105,6 +105,15 @@ class db{
         }
     }
 
+    function get_team2()
+    {
+        $this->connect();
+        $sql = "SELECT * FROM employee ";
+        $result = mysqli_query($this->connection, $sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row;
+    }
+
     function delete_team($id){
         $this->connect();
         $sql= "DELETE FROM employee WHERE id='$id' ";
@@ -160,6 +169,39 @@ class db{
             return true;
         }else{
             return false;
+        }
+    }
+
+
+    function create_blog($post,$file){
+        $this->connect();
+        extract($post);
+        $fn = $_FILES['image']['name'];
+        $ftemp = $_FILES['image']['tmp_name'];
+        $sql = "INSERT INTO blog VALUES(null , '$title', '$description','$fn')";
+        $result = mysqli_query($this->connection, $sql);
+        if ($result) {
+            if ($fn != '') {
+                move_uploaded_file($ftemp, "images/$fn");
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+    function get_blog()
+    {
+        $this->connect();
+        $sql = "SELECT * FROM blog";
+        $result = mysqli_query($this->connection, $sql);
+        $row_num = mysqli_num_rows($result);
+        if ($row_num == 0) {
+            return false;
+        } else {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $data[] = $row;
+            }
+            return $data;
         }
     }
 

@@ -3,7 +3,7 @@ require('DB.php');
 
 if(isset($_POST['submit'])){
     extract($_POST);
-    if($db_object->login($emali,$password)){
+    if($db_object->login($email, $password)){
     session_start();
     $_SESSION['email']= $email;
     $_SESSION['password'] = $password;

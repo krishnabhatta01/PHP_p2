@@ -83,7 +83,7 @@ if (isset($_POST['submit'])) {
                             <div class="m-3">
                                 <label for="description"></label>
                                 <textarea name="description" id="" cols="30" rows="10" required>
-                                <?= $data['about_description'] ?>
+                                <?=$data['about_description'] ?>
                                </textarea>
                             </div>
                         </div>
