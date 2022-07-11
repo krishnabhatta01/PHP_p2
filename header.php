@@ -62,7 +62,7 @@ extract($data);
                     <li class="nav-item"><a href="about_menu.php" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="services_menu.php" class="nav-link">Services</a></li>
                     <li class="nav-item"><a href="portfolio_menu.php" class="nav-link">Portfolio</a></li>
-                    <li class="nav-item"><a href="pricing_menu.php" class="nav-link">Pricing</a></li>
+                    <li class="nav-item"><a href="price_plan_menu.php" class="nav-link">Pricing</a></li>
                     <li class="nav-item"><a href="blog_menu.php" class="nav-link">Blog</a></li>
                     <li class="nav-item"><a href="contact_menu.php" class="nav-link">Contact</a></li>
                 </ul>
